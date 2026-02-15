@@ -4,9 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import SignUp from "..  /Pages/SignUp";
-import Login from "../Pages/Login";
-
+import Signup from "./Pages/Signup";
+import Login from "./Pages/Login";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,17 +13,17 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>
-          {/* Default route redirect */}
-        <Route path="/" element={<Navigate to="/login" />} />
+      <Routes>
+        {/* Default route: SignUp first */}
+        <Route path="/" element={<Navigate to="/signup" />} />
 
-        {/* Sign Up page */}
-        <Route path="/signup" element={<SignUp />} />
+        {/* SignUp page */}
+        <Route path="/signup" element={<Signup />} />
 
         {/* Login page */}
         <Route path="/login" element={<Login />} />
-        </Routes>
-      </Router>
+      </Routes>
+    </Router>
     </>
   )
 }

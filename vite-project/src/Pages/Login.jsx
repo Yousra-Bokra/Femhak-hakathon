@@ -1,7 +1,7 @@
-// src/pages/Login.jsx
+// src/Pages/Login.jsx
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Link import کریں
+import { Link } from "react-router-dom"; // optional SignUp link
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -27,10 +27,10 @@ function Login() {
             <h2 className="text-center mb-4">Login</h2>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>ای میل</Form.Label>
+                <Form.Label>email</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="ای میل درج کریں"
+                  placeholder="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -39,7 +39,7 @@ function Login() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>پاسورڈ</Form.Label>
+                <Form.Label>password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="پاسورڈ درج کریں"
@@ -55,9 +55,9 @@ function Login() {
               </Button>
             </Form>
 
-            {/* Sign Up page کا link */}
+            {/* optional SignUp link */}
             <p className="text-center mt-3">
-              نیا اکاؤنٹ بنانا ہے؟ <Link to="/signup">Sign Up</Link>
+              New Account<Link to="/signup">Sign Up</Link>
             </p>
           </Card>
         </Col>

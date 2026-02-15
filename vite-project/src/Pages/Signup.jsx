@@ -1,9 +1,10 @@
-// src/pages/SignUp.jsx
+// src/Pages/SignUp.jsx
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";  // Link import کریں
+import { useNavigate } from "react-router-dom"; // useNavigate import کریں
 
-function SignUp() {
+function Signup() {
+  const navigate = useNavigate(); // navigation hook
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,7 +18,9 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Sign Up Data:", formData);
-    alert("Sign Up Successful!");
+
+    // Sign Up successful → Login page پر navigate کریں
+    navigate("/login");
   };
 
   return (
@@ -28,7 +31,7 @@ function SignUp() {
             <h2 className="text-center mb-4">Sign Up</h2>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>نام</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="اپنا نام درج کریں"
@@ -40,7 +43,7 @@ function SignUp() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>ای میل</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="ای میل درج کریں"
@@ -52,7 +55,7 @@ function SignUp() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>پاسورڈ</Form.Label>
+                <Form.Label>Pasword</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="پاسورڈ درج کریں"
@@ -67,11 +70,6 @@ function SignUp() {
                 Sign Up
               </Button>
             </Form>
-
-            {/* Login page کا link */}
-            <p className="text-center mt-3">
-              پہلے سے اکاؤنٹ ہے؟ <Link to="/login">Login</Link>
-            </p>
           </Card>
         </Col>
       </Row>
@@ -79,4 +77,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Signup;
