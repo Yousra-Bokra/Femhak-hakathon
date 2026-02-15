@@ -10,7 +10,7 @@ function Login() {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.targetvalue });
   };
 
   const handleSubmit = (e) => {

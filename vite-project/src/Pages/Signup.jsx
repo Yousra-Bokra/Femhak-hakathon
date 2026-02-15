@@ -1,10 +1,10 @@
 // src/Pages/SignUp.jsx
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"; // useNavigate import کریں
+import { useNavigate, Link } from "react-router-dom"; // Link import kiya hai
 
 function Signup() {
-  const navigate = useNavigate(); // navigation hook
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +19,7 @@ function Signup() {
     e.preventDefault();
     console.log("Sign Up Data:", formData);
 
-    // Sign Up successful → Login page پر navigate کریں
+    // After successful Sign Up → Redirect to Login
     navigate("/login");
   };
 
@@ -27,14 +27,16 @@ function Signup() {
     <Container className="mt-5">
       <Row className="justify-content-center">
         <Col md={6} lg={5}>
-          <Card className="p-4 shadow">
-            <h2 className="text-center mb-4">Sign Up</h2>
+          <Card className="p-4 shadow border-0">
+            <h2 className="text-center mb-4">Create Your Account</h2>
             <Form onSubmit={handleSubmit}>
+              
+              {/* Full Name Field */}
               <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Full Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="اپنا نام درج کریں"
+                  placeholder="Enter your name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -42,11 +44,12 @@ function Signup() {
                 />
               </Form.Group>
 
+              {/* Email Field */}
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email Address</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="ای میل درج کریں"
+                  placeholder="Enter email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -54,11 +57,12 @@ function Signup() {
                 />
               </Form.Group>
 
+              {/* Password Field */}
               <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>Pasword</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="پاسورڈ درج کریں"
+                  placeholder="Enter password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
@@ -66,9 +70,18 @@ function Signup() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="w-100">
+              <Button variant="primary" type="submit" className="w-100 mb-3">
                 Sign Up
               </Button>
+
+              {/* Link to Login Page */}
+              <div className="text-center">
+                <span className="text-muted">Already have an account? </span>
+                <Link to="/login" className="text-decoration-none fw-bold">
+                  Login here
+                </Link>
+              </div>
+              
             </Form>
           </Card>
         </Col>
